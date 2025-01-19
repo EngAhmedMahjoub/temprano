@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from typing import final
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
+import traceback
 
 BOT_USERNAME: final = '@ttemprano_bot'
 
@@ -22,3 +23,8 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def custom_command(update: Update, context: ContextTypes):
     await update.message.reply_text('Custom commands')
+
+# Errors
+async def error(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    print(f'Update {update} caused error {context.error}')
+    traceback.print_exc()
