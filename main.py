@@ -14,6 +14,11 @@ WEATHER_API_KEY = os.getenv('WEATHER_API_KEY')
 
 # Commands
 
-async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE)
+async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text('Hello, I am your friendly assistant temprano! How can I help you?')
-    
+
+async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text('Select the location for weather')
+
+async def custom_command(update: Update, context: ContextTypes):
+    await update.message.reply_text('Custom commands')
